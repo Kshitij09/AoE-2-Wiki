@@ -1,24 +1,30 @@
 import SwiftUI
 import core
+import RxSwift
+import KMPNativeCoroutinesRxSwift
 
 struct ContentView: View {
 	let greeting = Greeting()
     
     @State var greet = "Loading"
     
-    func load() {
-        greeting.getHtml { result, error in
-            if let result = result {
+    func load() -> Disposable {
+        let htmlSingle = createSingle(for: greeting.getHtmlNative())
+        return htmlSingle.subscribe(onSuccess: { result in
                 self.greet = result
-            } else if let error = error {
-                greet = "Error: \(error)"
-            }
-        }
+            }, onFailure: { error in
+                self.greet = "Error: \(error)"
+            }, onDisposed: {
+                print("getHtml disposed")
+            })
     }
     
 	var body: some View {
+        var greetHandle: Disposable? = nil
         Text(greet).onAppear() {
-            load()
+            greetHandle = load()
+        }.onDisappear() {
+            greetHandle?.dispose()
         }
 	}
 }

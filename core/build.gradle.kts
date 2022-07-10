@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
+    id("com.rickclephas.kmp.nativecoroutines") version "0.12.6"
 }
 
 version = "1.0"

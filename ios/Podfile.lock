@@ -1,8 +1,20 @@
 PODS:
   - core (1.0)
+  - KMPNativeCoroutinesCore (0.12.6)
+  - KMPNativeCoroutinesRxSwift (0.12.6):
+    - KMPNativeCoroutinesCore (= 0.12.6)
+    - RxSwift (~> 6.0)
+  - RxSwift (6.5.0)
 
 DEPENDENCIES:
   - core (from `../core`)
+  - KMPNativeCoroutinesRxSwift (= 0.12.6)
+
+SPEC REPOS:
+  trunk:
+    - KMPNativeCoroutinesCore
+    - KMPNativeCoroutinesRxSwift
+    - RxSwift
 
 EXTERNAL SOURCES:
   core:
@@ -10,7 +22,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   core: 7f723fc49f9a887a012fce960b3e7f18c80ecd8c
+  KMPNativeCoroutinesCore: 35da0312355f0e911cbb16923aea3389894affca
+  KMPNativeCoroutinesRxSwift: 4cbb0cf37732ef9e062195014d631a9512a31f2c
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: d145036d051a5d56a08c56141f459d301532567e
+PODFILE CHECKSUM: 95d5146b67683534bc2acc51034eb2136005d3d3
 
 COCOAPODS: 1.11.3
